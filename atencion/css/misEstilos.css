@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(245, 250, 255);
+}
+
+footer {
+    background-color: rgb(199, 230, 255);
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:25px;
+    width:100%;
+    padding-top: .2em;
+}
+.titDatoExpediente{
+font-family: Tahoma, Geneva, sans-serif;
+font-size:13px;
+font-weight:bold;
+}
+
+.titDatoExpediente.azul {
+ color:rgb(14, 100, 212);
+}

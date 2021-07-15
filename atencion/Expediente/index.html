@@ -1,0 +1,218 @@
+<script src="Expediente/js/index.js"></script>
+<section>
+
+<div class="row ">
+  <!-- DATOS DEL PACIENTE -->
+  <div class="col col-sm-12 col-lg-3">
+    <div class="card bg-light mb-3">
+      <div class="card-header " id="titulo">Header</div>
+      <div class="card-body">
+        <h5 class="card-title">Generales</h5>
+        <div class="row">
+          <div class="col col-6 ">
+            <h6>Sexo</h6>
+          </div>
+          <div class="col col-6 titDatoExpediente azul" id="sexo"></div>
+        </div>
+        <div class="row">
+          <div class="col col-6 ">
+            <h6>edad</h6>
+          </div>
+          <div class="col col-6 titDatoExpediente azul" id="edad"></div>
+        </div>
+        <div class="row">
+          <div class="col col-6 ">
+            <h6>Alergias</h6>
+          </div>
+          <div class="col col-6 titDatoExpediente azul" id="alergias"></div>
+        </div>
+        <div class="row">
+          <div class="col col-6 ">
+            <h6>Antecedentes pat. familiares</h6>
+          </div>
+          <div class="col col-6 titDatoExpediente azul" id="antPatFam"></div>
+        </div>
+        <div class="row">
+          <div class="col col-6 ">
+            <h6>Antecedentes pat. personales</h6>
+          </div>
+          <div class="col col-6 titDatoExpediente azul" id="antPatPer"></div>
+        </div>
+        <div class="row">
+          <div class="col col-6 ">
+            <h6>Es diabético</h6>
+          </div>
+          <div class="col col-6 titDatoExpediente azul" id="esDiabetico"></div>
+        </div>
+        <div class="row">
+          <div class="col col-6 ">
+            <h6>Es hipertenso</h6>
+          </div>
+          <div class="col col-6 titDatoExpediente azul" id="esHipertenso"></div>
+        </div>
+        <div class="row">
+          <div class="col col-6 ">
+            <h6>Es dislipidémico</h6>
+          </div>
+          <div class="col col-6 titDatoExpediente azul" id="esDislipidemico"></div>
+        </div>
+        <div class="row">
+          <div class="col col-6 ">
+            <h6>Religión</h6>
+          </div>
+          <div class="col col-6 titDatoExpediente azul" id="religion"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- DATOS PARA EL EXPEDIENTE -->
+  <div class="col col-sm-12 col-lg-9">
+        <div class="row">
+          <div class="col col-sm-12 col-lg-6">
+
+
+            <div class="card">
+              <div class="card-body">
+
+                <div class="form-group row">
+                  <label class="col-md-3 control-label" for="txtMotivoDeConsulta">Motivo de la consulta</label>
+                  <div class="col-md-9">
+                    <textarea class="form-control wyswyg" id="txtMotivoDeConsulta" name="txtMotivoDeConsulta"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3 control-label" for="txtDiagnostico">Dx:</label>
+                  <div class="col-md-9">
+                    <textarea class="form-control wyswyg" id="txtDiagnostico" name="txtDiagnostico"></textarea>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="card">
+              <div class="card-body">
+                <!-- Text input-->
+                <div class="form-group row">
+                  <label class="col-md-4 control-label" for="txtTa">T.A (mmHg):</label>
+                  <div class="col-md-4">
+                    <input id="txtTa" name="txtTa" type="text" placeholder="" class="form-control input-md">
+                  </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group row">
+                  <label class="col-md-4 control-label" for="txtFc">F.C (p/m):</label>
+                  <div class="col-md-4">
+                    <input id="txtFc" name="txtFc" type="" placeholder="" class="form-control input-md">
+                  </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group row">
+                  <label class="col-md-4 control-label" for="txtTemperatura">Temp. (°C):</label>
+                  <div class="col-md-4">
+                    <input id="txtTemperatura" name="txtTemperatura" type="number" placeholder=""
+                      class="form-control input-md">
+                  </div>
+                </div>
+
+
+                <!-- Text input-->
+                <div class="form-group row">
+                  <label class="col-md-4 control-label" for="txtGlucosa">Glucosa (mg/dL):</label>
+                  <div class="col-md-4">
+                    <input id="txtGlucosa" name="txtGlucosa" type="number" placeholder="" class="form-control input-md">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col col-sm-12 col-lg-6">
+
+            <div class="card" style="background: FloralWhite">
+              <div class="card-body">
+
+                <!-- </div> -->
+                <div class="form-group row">
+                  <label class="col-md-4 control-label" for="txtPeso">Peso (kg):</label>
+                  <div class="col-md-5">
+                    <input id="txtPeso" name="txtPeso" type="number" placeholder="" class="form-control input-md">
+                  </div>
+                </div>
+
+                <div class="form-group row ">
+                  <label class="col-md-4 control-label" for="txtTalla">Talla(cm):</label>
+                  <div class="col-md-5">
+                    <input id="txtTalla" name="txtTalla" type="number" placeholder="" class="form-control input-md">
+                  </div>
+                </div>
+
+                <div class="form-group row ">
+                  <label class="col-md-4 control-label" for="txtImc">Imc:</label>
+                  <div class="col-md-5">
+                    <input id="txtImc" name="txtImc" type="number" placeholder="" class="form-control input-md"
+                      readonly>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+
+                <div class="form-group row">
+                  <label class="col-md-3 control-label" for="txtTratamiento">Rp.:</label>
+                  <div class="col-md-9">
+                    <textarea class="form-control wyswyg" id="txtTratamiento" name="txtTratamiento"></textarea>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3 control-label" for="txtTratamiento">Padecimiento:</label>
+                  <div class="col-md-9">
+
+                    <select id="cboPadecimiento" class="form-control">
+                      <option value="0">Seleccione</option>
+
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label class="col-md-3 control-label" for="txtNota">Nota:</label>
+                  <div class="col-md-9">
+                    <textarea class="form-control wyswyg" id="txtNota" name="txtNota"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group row">
+              <div class="col-md-2">
+                <button id="btnGuardar" name="btnGuardar" class="btn btn-primary btn-sm" type="button" >Guardar</button>
+              </div>
+              <div class="col-md-3">
+                <button id="btnLimpiaDatos" name="btnLimpiaDatos" class="btn btn-primary btn-sm" type="button" >Limpiar datos</button>
+              </div>
+              <div class="col-md-7" id="mensajes"></div>
+
+          </div>
+        </div>
+  </div>
+</div>
+</section>
+
+
+<section>
+  <h3>Expediente</h3>
+  <div id="expediente">
+  </div>
+</section>

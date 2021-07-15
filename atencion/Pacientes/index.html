@@ -1,0 +1,261 @@
+<script src="Pacientes/js/index.js"></script>
+
+<h3>Expedientes</h3>
+ 	<div class="row">
+ 		<div class="col-md-12" id="ListaPacientes">
+ 		</div>
+ 	</div>
+ 	
+ 	<!-- <nav class="navbar navbar-light navbar-fixed-bottom"> -->
+ 	<nav class="navbar navbar-expand-lg navbar-light fixed-bottom bg-light ">
+ 		<div class="container">
+<!--  			<div class="col-sm-11">
+	 			<input type="input" class="form-control" id="exampleInputEmail3" placeholder="Buscar">
+ 			</div> -->
+ 			<div class="col-md-12 offset-md-11 ">
+ 				<button type="button" class="btn btn-success btn-sm botn" id="btnAgregar" data-toggle="modal" data-target="#modalNuevoPaciente"><span class="fa fa-plus" aria-hidden="true"></span></button>
+ 			</div>
+ 		</div>
+ 	</nav>
+
+ 	<!-- Modal -->
+ 	<div class="modal fade" id="modalNuevoPaciente" tabindex="-1" role="dialog" aria-labelledby="myModalLabelNuevo">
+ 		<div class="modal-dialog modal-md" role="document">
+ 			<div class="modal-content">
+ 				<div class="modal-header">
+ 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+ 					<h4 class="modal-title" id="myModalLabelNuevo">Nuevo paciente</h4>
+ 				</div>
+ 				<div class="modal-body">
+					 <input type="text" name="" id="txtIdPaciente" class="form-control input invisible">
+					 
+					<div class="has-error">
+						<label>Nombre</label>
+						<input type="text" name="" id="txtNombre" placeholder="Obligatorio" class="form-control input">
+					</div>
+
+ 					<div class="has-error">
+						<label class="has-error">Apellido paterno</label>
+						<input type="text" name="" id="txtApPater" placeholder="Obligatorio" class="form-control input">
+					 </div>
+					 
+					<label>Apellido materno</label>
+					<input type="text" name="" id="txtApMater" class="form-control input">
+					
+
+						<label>Fecha de nacimiento (día/mes/año)</label>
+						<div class="row">
+							<div class="col-md">
+								<input type="date" name="" id="txtFechaNacimiento" class="form-control" >
+							</div>
+						</div>
+
+
+						<label>Sexo</label>
+							<select id="cboSexo" class="form-control">
+								<option value="0">Seleccione</option>
+								<option value="Femenino">Femenino</option>
+								<option value="Masculino">Masculino</option>
+							</select>
+
+					<div class="has-error">
+						<label>Alergias</label>
+						<input type="text" name="" id="txtAlergias" placeholder="Obligatorio" class="form-control input">
+					</div>
+					<label>Antecedentes Patológicos Familiares</label>
+					<input type="text" name="" id="txtAntPatFam" placeholder="Opcional" class="form-control input">
+					<label>Antecedentes Patológicos Personales</label>
+					<input type="text" name="" id="txtAntPatPer" placeholder="Opcional" class="form-control input">
+					<div class="row">
+						<div class="col-md-4">
+							<label class="control-label" for="chkEsDiabetico">Es diabético</label>
+							<div class=" material-switch ">
+								<input id="chkEsDiabetico" name="chkEsDiabetico" type="checkbox"/>
+								<label for="chkEsDiabetico" class="label-success"></label>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<label class="control-label" for="chkEsHipertenso">Es hipertenso</label>
+							<div class=" material-switch ">
+								<input id="chkEsHipertenso" name="chkEsHipertenso" type="checkbox"/>
+								<label for="chkEsHipertenso" class="label-success"></label>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<label class="control-label" for="chkEsDislipidemico">Es Dislipidémico</label>
+							<div class=" material-switch ">
+								<input id="chkEsDislipidemico" name="chkEsDislipidemico" type="checkbox"/>
+								<label for="chkEsDislipidemico" class="label-success"></label>
+							</div>
+						</div>
+                    </div>
+
+					<label>Celular</label> 
+					<input type="text" name="" id="txtCelular" placeholder="Opcional" class="form-control input">
+ 					<label>Religión</label>
+					<input type="text" name="" id="txtReligion" placeholder="Opcional" class="form-control input">
+					<label>Correo</label>
+					<input type="email" name="" id="txtCorreo" placeholder="Opcional" class="form-control input">
+					<label>Algún contacto</label>
+					<input type="text" name="" id="txtContacto" placeholder="Opcional" class="form-control input">
+ 				</div>
+ 				<div class="modal-footer">
+					 <div id="mensajesDeError"></div>
+ 					<button type="button" class="btn btn-default" data-dismiss="modal" id="btnCancelar">Cerrar</button>
+ 					<button type="button" class="btn btn-primary" id="btnGuardar" >Guardar</button>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>
+
+ 	<div class="modal fade " id="modalEditaPaciente" tabindex="-1" role="dialog" aria-labelledby="myModalLabelModifica">
+		<div class="modal-dialog modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+					<h4 class="modal-title" id="myModalLabelNuevo">Editando paciente</h4>
+				</div>
+				<div class="modal-body">
+					<input type="text" name="" id="txtIdPacienteEd" class="form-control input invisible">
+					<div class="has-error">
+						<label>Nombre</label>
+						<input type="text" name="" id="txtNombreEd" placeholder="Obligatorio" class="form-control input">
+					 </div>
+					<div class="has-error">
+					   <label class="has-error">Apellido paterno</label>
+					   <input type="text" name="" id="txtApPaterEd" placeholder="Obligatorio" class="form-control input">
+					</div>
+				   <label>Apellido materno</label>
+				   <input type="text" name="" id="txtApMaterEd" class="form-control input">
+					   
+					   <label>Fecha de nacimiento (día/mes/año)</label>
+					   <div class="row">
+						   <div class="col-md">
+							   <input type="date" name="" id="txtFechaNacimientoEd" class="form-control" >
+						   </div>
+					   </div>
+
+
+					   <label>Sexo</label>
+						   <select id="cboSexoEd" class="form-control">
+							   <option value="0">Seleccione</option>
+							   <option value="Femenino">Femenino</option>
+							   <option value="Masculino">Masculino</option>
+						   </select>
+
+				   <div class="has-error">
+					   <label>Alergias</label>
+					   <input type="text" name="" id="txtAlergiasEd" placeholder="Obligatorio" class="form-control input">
+				   </div>
+				   <label>Antecedentes Patológicos Familiares</label>
+				   <input type="text" name="" id="txtAntPatFamEd" placeholder="Opcional" class="form-control input">
+				   <label>Antecedentes Patológicos Personales</label>
+				   <input type="text" name="" id="txtAntPatPerEd" placeholder="Opcional" class="form-control input">
+				   <div class="row">
+					   <div class="col-md-4">
+						   <label class="control-label" for="chkEsDiabeticoEd">Es diabético</label>
+						   <div class=" material-switch ">
+							   <input id="chkEsDiabeticoEd" name="chkEsDiabeticoEd" type="checkbox"/>
+							   <label for="chkEsDiabeticoEd" class="label-success"></label>
+						   </div>
+					   </div>
+
+					   <div class="col-md-4">
+						   <label class="control-label" for="chkEsHipertensoEd">Es hipertenso</label>
+						   <div class=" material-switch ">
+							   <input id="chkEsHipertensoEd" name="chkEsHipertensoEd" type="checkbox"/>
+							   <label for="chkEsHipertensoEd" class="label-success"></label>
+						   </div>
+					   </div>
+
+					   <div class="col-md-4">
+						   <label class="control-label" for="chkEsDislipidemicoEd">Es Dislipidémico</label>
+						   <div class=" material-switch ">
+							   <input id="chkEsDislipidemicoEd" name="chkEsDislipidemicoEd" type="checkbox"/>
+							   <label for="chkEsDislipidemicoEd" class="label-success"></label>
+						   </div>
+					   </div>
+				   </div>
+
+				   <label>Celular</label> 
+				   <input type="text" name="" id="txtCelularEd" placeholder="Opcional" class="form-control input">
+					<label>Religión</label>
+				   <input type="text" name="" id="txtReligionEd" placeholder="Opcional" class="form-control input">
+				   <label>Correo</label>
+				   <input type="email" name="" id="txtCorreoEd" placeholder="Opcional" class="form-control input">
+				   <label>Algún contacto</label>
+				   <input type="text" name="" id="txtContactoEd" placeholder="Opcional" class="form-control input">
+				</div>
+				<div class="modal-footer">
+					<div id="mensajesDeError"></div>
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="btnCancelarEd">Cerrar</button>
+					<button type="button" class="btn btn-primary" id="btnGuardarEd" >Guardar</button>
+				</div>
+			</div>
+		</div>
+ 	</div>
+
+
+ 	<div class="modal fade " id="modalConsulta" tabindex="-1" role="dialog" aria-labelledby="myModalLabelConsulta">
+ 		<div class="modal-dialog modal-lg" role="document">
+ 			<div class="modal-content">
+ 				<div class="modal-header">
+ 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+ 					<h4 class="modal-title" id="myModalLabelConsulta">Nueva consulta</h4>
+ 				</div>
+ 				<div class="modal-body">
+ 					<input type="text" name="" id="txtIdPacienteCons" class="form-control input invisible">
+ 					<input type="text" name="" id="txtSexo" class="form-control input invisible">
+ 					<input type="text" name="" id="txtEdad" class="form-control input invisible">
+ 					<div class="row">
+	 					<div class="col-4">
+							<label>Apellido paterno</label>
+							<input type="text" name="" id="txtApPaterCons" class="form-control input" disabled>
+							<label>Apellido materno</label>
+							<input type="text" name="" id="txtApMaterCons" class="form-control input" disabled >
+							<label>Nombre</label>
+							<input type="text" name="" id="txtNombreCons" class="form-control input" disabled>
+							<label>Departamento</label>
+								<select id="cboDepartamentoCons" class="form-control" disabled>
+									<option value="0">Seleccione</option>
+									<?php //$oDepto->LlenaComboDepartamentos(); ?>
+								</select>
+		                    <label>Motivo de consulta</label>
+							<input type="text" name="" id="txtMotivoCons" placeholder="Descripción detallada" class="form-control input">
+	 					</div>
+
+	 					<div class="col-4">
+							<label>T.A (mmHg)</label>
+							<input type="text" name="" id="txtTa" placeholder="Dato opcional" class="form-control input">
+							<label>F.C (p/m)</label>
+							<input type="text" name="" id="txtFc" placeholder="Dato opcional" class="form-control input">
+							<label>Temp. (°C)</label>
+							<input type="number" name="" id="txtTemperatura" placeholder="Dato opcional" class="form-control input">
+							<label>Glucosa (mg/dL)</label>
+							<input type="number" name="" id="txtGlucosa" placeholder="Dato opcional" class="form-control input">
+	 					</div>
+
+						<div class="col-4">
+							<label>Peso (kg)</label>
+							<input type="number" name="txtPeso" id="txtPeso" placeholder="Dato opcional" class="form-control input" >
+							<label>Talla(cm):</label>
+							<input type="number" name="txtTalla" id="txtTalla" placeholder="Dato opcional" class="form-control input" >
+							<input type="number" name="txtConstanteFcm" id="txtConstanteFcm" placeholder="" class="form-control input invisible"  >
+							<label>IMC</label>
+							<input type="number" name="txtImc" id="txtImc" placeholder="" class="form-control input" value="0" readonly>
+							<label>% F. C. sugerida</label>
+							<input type="number" name="txtPorcentajeFcm" id="txtPorcentajeFcm" placeholder="Dato opcional" class="form-control input" min="50" max="100" step="5" value="100">
+							<label>F. C. sugerida</label>
+							<input type="number" name="txtFcm" id="txtFcm" placeholder="" class="form-control input" readonly>
+						</div>
+ 					</div>
+ 				</div>
+ 				<div class="modal-footer">
+ 					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+ 					<button type="button" class="btn btn-primary" onclick="guardaConsultajqry()">Guardar</button>
+ 				</div>
+ 			</div>
+ 		</div>
+ 	</div>

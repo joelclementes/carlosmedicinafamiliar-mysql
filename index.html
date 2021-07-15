@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dr. Carlos | Medicina familiar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/main.css" />
+
+    <!-- {/* SEO */} -->
+    <meta name="title" content="Carlos Medicina Familiar" />
+    <meta name="author" content="jclementes" />
+    <meta name="description" content="Dr. Carlos Espinoza. Especialidad en medicina familiar. Provee la mejor calidad en atención Médica. Xalapa, Veracruz." />
+    <meta name="keywords" content="Doctor, salud, especialista, xalapa, imss, servicio médico, medicina, familiar, enfermedades, respiratorias, cardiovascular, ansiedad, depresión, embarazo, hipertensión, diabetes, adulto mayor " />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="og:title" content="Dr. Carlos Espinoza | Especialidad en medicina familiar"></meta>
+    <meta name="og:image" content="/img/fotoperfil.jpeg"/>
+    <meta name="og:description" content="Mejor calidad en atención médica. Servicio en Xalapa, Ver. y a domicilio"></meta>
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <nav class="navbar navbar-expand-lg navbar-dark bg-azul fixed-top p-2">
+                    <a class="navbar-brand" href="#inicio">Dr. Carlos Espinoza</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#inicio">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#servicios">Servicios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#acercademi">Acerca de mi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#agendarcita">Agendar cita</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        
+        <main id="inicio">
+            <section id="" class="row mt-sm-15">
+                <br><br><br>
+                <div  class="card border-0 card-fotoinicio">
+                    <img src="img/encabezado2.png" alt="Doctor Carlos Espinoza | Medicina familiar | Xalapa, Veracruz" />
+                </div>
+            </section>
+
+            <section id="servicios" class="pt-md-3">
+                <br><br>
+                <h1 class="text-center">Servicios</h1>
+                <div class="row" id="VueServicios">
+                    
+                    <!--  Cards que se llenan dinámicamente con los datos que están en data/servicios.json  ******
+                    ***** por medio de Vue.js                                                               ***-->
+                    <div v-for="servicio in servicios" :key="servicio.id" class="col-xs-12 col-lg-6 col-lg-6 col-xl-4 text-center">
+                        <div class="card border-0 card-servicio">
+                            <img :src="servicio.imagen" :alt="servicio.altimg" class="rounded-top"/>
+                            <div class="card-body align-middle text-verde bg-azul rounded-bottom">
+                                {{ servicio.nombre }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="acercademi" class="bg-verde rounded-3">
+                <!-- <br><br><br> -->
+                <h1 class="text-center">Acerca de mi</h1>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 text-center">
+                        <img src="img/fotoperfil.png" alt="Fotografía de perfil del Dr. Carlos Espinoza | Medicina familiar" class="shadow p-1 mb-2 bg-body fotoperfil" />
+                    </div>
+                    <div class="col-xs-12 col-sm-8 p-4">
+                        <p class="text-center">
+                            <span class="text-azul">Dr. Carlos Espinoza</span>
+                        </p>
+                        <p>
+                            Soy especialista en Medicina Familiar. Egresado de la
+                            Universidad Veracruzana.
+                        </p>
+                        <p>
+                            El Médico Familiar es el especialista que atiende al indivíduo
+                            no solo desde el punto de vista biológico de la enfermedad sino
+                            al indivíduo dentro del contexto familiar dando importancia a
+                            los factores externos que influyen positiva o negativamente en
+                            su salud.
+                        </p>
+                        <p>
+                            Tengo experiencia atendiendo a niños, adultos y adultos mayores,
+                            mujeres embarazadas sobre padecimientos cronicodegenerativos
+                            como Artritis, Diabetes, Hipertensión, etc, sobre su diagnóstico
+                            tratamiento y/o control.
+                        </p>
+                        <p>
+                            Tambien pacientes con trastornos emocionales de origen variado y
+                            pacientes con trastornos propios de la tercera edad
+                        </p>
+                    </div>
+            </section>
+
+            <section id="agendarcita">
+                <br><br><br>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <a href="https://api.whatsapp.com/send/?phone=522281260925&text=Hola Dr., deseo agendar una cita&app_absent=0" target="_blank">
+                            <div class="card border-0 ">
+                                <img src="img/agendaCitaWhatsApp-01.png" alt="Link para agendar cita"/>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="row">
+
+                <div class="bg-azul text-verde  p-2 bd-highlight text-center">
+                    <div class="d-flex justify-content-around">
+                        <p>Calle Teodoro Lavoignet No.6 casi esq. Av. Ruiz Cortinez<br>
+                        Col. Virginia Cordero de Murillo Vidal Xalapa, Ver.</p>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div>
+                            <p class="text-center">Cédula profesional: <span class="text-white">3875880</span></p>
+                        </div>
+                        <div>
+                            <p class="text-center">Cédula de especialidad: <span class="text-white">11522043</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Vue js -->
+    <script src="js/vue.js"></script>
+
+
+    <!-- Mi script -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

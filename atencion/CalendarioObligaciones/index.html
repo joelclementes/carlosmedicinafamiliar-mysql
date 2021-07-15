@@ -1,0 +1,210 @@
+<script src="CalendarioObligaciones/js/index.js"></script>
+<div class="row">
+	<div class="col">
+		<h4>Calendario de obligaciones</h4>
+	</div>
+	<div class="col">
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#exampleModal">
+			Ayuda
+		</button>
+
+		<!-- Modal -->
+		<div class="modal " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Manejo de eventos</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<p><b>Para crear un nuevo evento</b>, haga clic en el cuadro del día deseado.</p>
+						<p><b>Para modificar un evento</b>, haga doble clic en el evento deseado.</p>
+						<p><b>Para cambiar el día de un evento</b>, arrástrelo al día deseado.</p>
+						<p><b>Para eliminar un evento</b>, haga doble clic en el evento deseado, verifique la casilla de "eliminar" y guarde.</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+						<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div id="calendar" class="col-md-12">
+		<div>
+
+			<!-- Modal -->
+			<div class="modal " id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<form class="form-horizontal">
+
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+										aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">Agregar Evento</h4>
+							</div>
+							<div class="modal-body">
+
+								<div class="form-group">
+									<label for="txtObligacion" class="col-sm-12 control-label">Obligación</label>
+									<div class="col-sm-12">
+										<input type="text" name="txtObligacion" class="form-control" id="txtObligacion"
+											placeholder="">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="txtFundamentoLegal" class="col-sm-12 control-label">Fundamento
+										legal</label>
+									<div class="col-sm-12">
+										<textarea type="text" name="txtFundamentoLegal"
+											class="form-control textoObligacion" id="txtFundamentoLegal"
+											placeholder=""></textarea>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="txtDisposicion" class="col-sm-12 control-label">Disposición</label>
+									<div class="col-sm-12">
+										<textarea type="text" name="txtDisposicion" class="form-control textoObligacion"
+											id="txtDisposicion" placeholder=""></textarea>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="start" class="col-sm-12 control-label">Fecha Inicial</label>
+									<div class="col-sm-12">
+										<input type="text" name="start" class="form-control" id="start" readonly>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="end" class="col-sm-12 control-label">Fecha Final</label>
+									<div class="col-sm-12">
+										<input type="text" name="end" class="form-control" id="end" readonly>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="color" class="col-sm-12 control-label">Color</label>
+									<div class="col-sm-12">
+										<select name="color" class="form-control" id="color">
+											<option value="">Seleccionar</option>
+											<option style="color:#0071c5;" value="#0071c5">&#9724; Azul oscuro</option>
+											<option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquesa</option>
+											<option style="color:#008000;" value="#008000">&#9724; Verde</option>
+											<option style="color:#FFD700;" value="#FFD700">&#9724; Amarillo</option>
+											<option style="color:#FF8C00;" value="#FF8C00">&#9724; Naranja</option>
+											<option style="color:#FF0000;" value="#FF0000">&#9724; Rojo</option>
+											<option style="color:#000;" value="#000">&#9724; Negro</option>
+
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-info" data-dismiss="modal">Cerrar</button>
+								<button id="btnGuardaEventoNuevo" type="button" class="btn btn-primary">Guardar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal -->
+			<div class="modal " id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<form class="form-horizontal" method="POST" action="editEventTitle.php">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+										aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">Modificar Evento</h4>
+							</div>
+							<div class="modal-body">
+
+								<div class="form-group">
+									<label for="txtObligacion" class="col-sm-12 control-label">Obligación</label>
+									<div class="col-sm-12">
+										<input type="text" name="txtObligacion" class="form-control" id="txtObligacion"
+											placeholder="">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="txtFundamentoLegal" class="col-sm-12 control-label">Fundamento
+										legal</label>
+									<div class="col-sm-12">
+										<textarea type="text" name="txtFundamentoLegal"
+											class="form-control textoObligacion" id="txtFundamentoLegal"
+											placeholder=""></textarea>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="txtDisposicion" class="col-sm-12 control-label">Disposición</label>
+									<div class="col-sm-12">
+										<textarea type="text" name="txtDisposicion" class="form-control textoObligacion"
+											id="txtDisposicion" placeholder=""></textarea>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="start" class="col-sm-12 control-label">Fecha Inicial</label>
+									<div class="col-sm-12">
+										<input type="date" name="start" class="form-control" id="start">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="end" class="col-sm-12 control-label">Fecha Final</label>
+									<div class="col-sm-12">
+										<input type="date" name="end" class="form-control" id="end">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label for="color" class="col-sm-12 control-label">Color</label>
+									<div class="col-sm-12">
+										<select name="color" class="form-control" id="color">
+											<option value="">Seleccionar</option>
+											<option style="color:#0071c5;" value="#0071c5">&#9724; Azul oscuro</option>
+											<option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquesa</option>
+											<option style="color:#008000;" value="#008000">&#9724; Verde</option>
+											<option style="color:#FFD700;" value="#FFD700">&#9724; Amarillo</option>
+											<option style="color:#FF8C00;" value="#FF8C00">&#9724; Naranja</option>
+											<option style="color:#FF0000;" value="#FF0000">&#9724; Rojo</option>
+											<option style="color:#000;" value="#000">&#9724; Negro</option>
+
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-offset-2 col-sm-10">
+										<div class="checkbox">
+											<label class="text-danger"><input id="chkEliminar" type="checkbox"
+													name="delete"> Eliminar Evento</label>
+										</div>
+									</div>
+								</div>
+								<input type="hidden" name="id" class="form-control" id="id">
+
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+								<button id="btnGuardaEventoEditado" type="button"
+									class="btn btn-primary">Guardar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
